@@ -1,0 +1,28 @@
+# Obsidian
+.obsidian/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Temp
+.tmp/
+.cache/
