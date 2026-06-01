@@ -13,6 +13,17 @@ Append-only record of all operations on the wiki. Tool-readable format: `## [YYY
 - GitHub repo: https://github.com/Rdkprop/brain-wiki
 - Status: Ready for daily ingestion workflow
 
+## [2026-06-01] ingest | 4 PropertyGuru DAA articles
+- Sources: Analytics Agent.md, Comparison GA4 vs Segment.md, Consumer Metrics 2026.md, Leads Playbook.md
+- Domain: work
+- Pages created: propertyguru, pg_consumer_metrics, analytics_agent, lead_tracking_sot, ga4_vs_segment
+- Pages updated: index.md, log.md
+- Contradictions: none
+- Gaps suggested:
+  - No page yet for [[segment_cdp]] (referenced in 3 articles, warrants its own concept page)
+  - No page yet for [[looker]] (primary BI tool — useful reference page)
+  - Search quality / zero-result analysis referenced repeatedly — candidate for a dedicated topic page
+
 ---
 
 *Use `grep "^## \["` to see all entries*
