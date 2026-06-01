@@ -13,6 +13,13 @@ Append-only record of all operations on the wiki. Tool-readable format: `## [YYY
 - GitHub repo: https://github.com/Rdkprop/brain-wiki
 - Status: Ready for daily ingestion workflow
 
+## [2026-06-01] ingest | raw/notes/Active Home seeker.md
+- Domain: work
+- Pages created: active_home_seeker
+- Pages updated: index.md, log.md
+- Contradictions: none
+- Connections: active_home_seeker ↔ pg_consumer_metrics (MEU vs Home Seeker distinction noted)
+
 ## [2026-06-01] ingest | 4 PropertyGuru DAA articles
 - Sources: Analytics Agent.md, Comparison GA4 vs Segment.md, Consumer Metrics 2026.md, Leads Playbook.md
 - Domain: work
