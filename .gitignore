@@ -1,8 +1,20 @@
-# Obsidian
-.obsidian/
+# Claude Code worktrees (internal tooling, not vault content)
+wiki/.claude/
+
+# Old vault root (vault was re-rooted from wiki/ to brain-wiki/)
+wiki/.obsidian/
+
+# Obsidian — per-user workspace state only (don't version, differs per machine)
+# Plugin configs, hotkeys, themes ARE versioned (intentionally not ignoring all of .obsidian/)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
 *.swp
 *.swo
 *~
+
+# Logs
+*.log
 
 # macOS
 .DS_Store

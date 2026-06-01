@@ -1,6 +1,6 @@
 # CLAUDE.md — Brain Wiki Schema
 
-Read this before every session. It defines how this vault is structured and what I am and am not allowed to do.
+Read this before every session. It defines how this vault is structured, what I am and am not allowed to do, and how operations work.
 
 ---
 
@@ -21,7 +21,7 @@ brain-wiki/          ← vault root (Obsidian opens here)
 | `raw/` | You only | I never edit or create files here. Read-only. |
 | `wiki/` | Me (with your approval) | I create, update, link, and synthesize pages. |
 | `dev/` | You primarily | I suggest edits, propose wikilinks, find related ADRs — but I wait for approval before writing. |
-| `CLAUDE.md` | Either, deliberately | Only change when the schema itself needs to evolve. |
+| `CLAUDE.md` | Either, deliberately | Only change when the schema itself needs to evolve. Ask before editing. |
 
 ---
 
@@ -32,13 +32,16 @@ raw/
 ├── articles/    # Web clips, blog posts (via Obsidian Web Clipper)
 ├── research/    # Papers, reports
 ├── books/       # Chapter notes, highlights
-├── notes/       # Your own fleeting notes, transcripts, screenshots
+├── notes/       # Fleeting notes, transcripts, screenshots
+├── daily/       # Daily stream-of-consciousness notes
 └── assets/      # Images referenced from notes
 ```
 
-Files here stay exactly as you saved them — rough formatting, leftover ads, whatever. Immutability means I can always trace what I synthesized from.
+Files here stay exactly as saved — rough formatting, leftover ads, whatever. Immutability means sources can always be traced.
 
-**Obsidian Web Clipper:** clips save directly to `raw/articles/`. Set the output path to `raw/articles/{{title}}.md` in the plugin settings.
+**Obsidian Web Clipper:** set output path to `raw/articles/{{title}}.md`.
+
+**Daily notes:** free-form stream of consciousness in `raw/daily/YYYY-MM-DD.md`. No forced structure. Used as input for weekly synthesis (see Weekly Synthesis Workflow below).
 
 ---
 
@@ -46,13 +49,13 @@ Files here stay exactly as you saved them — rough formatting, leftover ads, wh
 
 ```
 wiki/
-├── overview.md      # Master synthesis of everything
+├── overview.md      # Master synthesis
 ├── index.md         # Catalog of all pages
 ├── log.md           # Append-only operation history
 ├── entities/        # People, teams, orgs, projects
 ├── topics/          # Deep dives into a subject area
 ├── concepts/        # Standalone ideas and principles
-└── syntheses/       # Your unique analysis, comparisons, insights
+└── syntheses/       # Unique analysis, comparisons, insights
 ```
 
 ### Frontmatter (every wiki page)
@@ -73,12 +76,20 @@ tags: [tag1, tag2]
 ---
 ```
 
-**`domain:`** — how to split work vs personal. Use `work` for anything PropertyGuru/data-team related, `personal` for everything else. No separate folders needed — Dataview queries can filter on this field.
+**`domain:`** — `work` for PropertyGuru/data-team, `personal` for everything else.
+
+### Wikilink Conventions
+
+- **ALWAYS** use `[[wikilinks]]` for internal links. **NEVER** `[text](file.md)`.
+- Concepts use Title Case: `[[Lead Tracking]]`, `[[Active Home Seeker]]`
+- Entities: `[[Rohan Kajgaonkar]]`, `[[PropertyGuru]]`
+- File names remain lowercase_underscore; wikilinks display as Title Case via Obsidian aliases if needed.
+- If a target page doesn't exist yet, note it as a TODO — never invent the page.
 
 ### File Naming
 
-- lowercase with underscores: `compound_learning.md`, `rohan_kajgaonkar.md`
-- Entities: `firstname_lastname.md` or `project_name.md`
+- lowercase with underscores: `compound_learning.md`, `active_home_seeker.md`
+- Entities: `firstname_lastname.md` or `org_name.md`
 - Concepts: `concept_name.md`
 - Topics: `topic_deepdive.md`
 - Syntheses: `comparison_x_vs_y.md` or `analysis_topic.md`
@@ -90,8 +101,8 @@ tags: [tag1, tag2]
 | `entity` | Person, team, org, project | `wiki/entities/` |
 | `concept` | Abstract idea, principle | `wiki/concepts/` |
 | `topic` | Deep-dive subject | `wiki/topics/` |
-| `synthesis` | Your analysis/comparison | `wiki/syntheses/` |
-| `reference` | Quick-lookup, checklist | `wiki/` root or appropriate subfolder |
+| `synthesis` | Analysis/comparison | `wiki/syntheses/` |
+| `reference` | Quick-lookup, checklist | `wiki/` root |
 
 ---
 
@@ -100,37 +111,43 @@ tags: [tag1, tag2]
 ```
 dev/
 ├── adr/         # Architecture Decision Records
-├── projects/    # Project debriefs, status notes
+├── debriefs/    # Post-mortems and incident retrospectives
+├── projects/    # Project notes, status, debriefs
 ├── meetings/    # Meeting notes, action items
-└── reading/     # Technical reading notes (not processed into wiki yet)
+├── snippets/    # Reusable code/config fragments
+└── reading/     # Technical reading notes (not yet promoted to wiki/)
 ```
 
-**Workflow:** You draft here — rough notes, half-formed thoughts, raw ADRs. I read dev/ pages and:
+**Workflow:** You draft here — rough notes, half-formed thoughts, raw ADRs. I:
 - Suggest wikilinks to relevant wiki/ pages
 - Find earlier ADRs that contradict or relate
 - Propose which dev/ content is ready to promote into wiki/
 
 I do not auto-write into dev/. I propose, you approve.
 
-**Naming convention (dev/):**
-- ADRs: `adr/YYYY-MM-DD-decision-title.md`
+**Naming conventions:**
+- ADRs: `adr/ADR-NNNN-decision-slug.md` — consult `adr-writing` skill before creating
+- Debriefs: `debriefs/YYYY-MM-DD-slug.md` — consult `debrief-writing` skill before creating
 - Meetings: `meetings/YYYY-MM-DD-topic.md`
 - Projects: `projects/project-name.md`
+- Snippets: `snippets/description.md`
 - Reading: `reading/author-or-title.md`
 
 ---
 
-## Wikilinks
+## Available Skills
 
-Use `[[filename]]` (without `.md`). Link when meaningful, not everywhere.
+Skills live in `.claude/skills/`. Consult the relevant skill before using these patterns:
 
-```markdown
-This relates to [[compound_learning]].
-Compare with [[karpathy_llm_wiki]].
-See also [[rohan_kajgaonkar]] for context.
-```
-
-If the target page doesn't exist yet, I note it as a TODO rather than inventing the page.
+| Skill | When to use |
+|-------|------------|
+| `obsidian-markdown` | **Always** — correct wikilink syntax, callouts, frontmatter, embeds |
+| `obsidian-bases` | Creating `.base` database views |
+| `json-canvas` | Creating `.canvas` whiteboards |
+| `obsidian-cli` | Automating vault operations via `obsdmd` |
+| `defuddle` | Fetching a URL — strips ads/nav, extracts clean content |
+| `adr-writing` | Before creating or editing any file in `dev/adr/` |
+| `debrief-writing` | Before creating or editing any file in `dev/debriefs/` |
 
 ---
 
@@ -138,49 +155,68 @@ If the target page doesn't exist yet, I note it as a TODO rather than inventing 
 
 ### Ingest (raw/ → wiki/)
 
-When you drop a source in `raw/`:
+Use the `/wiki-ingest` command for structured ingestion. The command handles:
+1. Fetching/reading the source
+2. Saving to the correct `raw/` subfolder
+3. Analysing for concepts and entities
+4. **Presenting a plan and waiting for approval** before writing to wiki/
+5. Executing the approved plan
+6. Updating `wiki/index.md` and `wiki/log.md`
 
-1. Read the source
-2. Ask clarifying questions if the domain or emphasis is unclear
-3. Create/update pages in appropriate `wiki/` subfolder
-4. Update `wiki/index.md` and `wiki/log.md`
-5. Report: pages created, pages updated, contradictions found, gaps suggested
+**Plan-first rule:** If an ingest affects more than 5 files, I MUST show the full plan before executing. No exceptions.
 
 ### Query
 
-When you ask a question:
+Use the `/wiki-query` command. It:
+1. Searches with `grep` before reading (keeps token cost low)
+2. Reads up to 10 relevant files, prioritising wiki/
+3. Answers with `[[wikilink]]` citations
+4. Signals clearly when inferring vs citing
+5. Never fabricates — says "not in vault" if the information isn't there
 
-1. Read `wiki/index.md` → identify relevant pages
-2. Read those pages, dig into sources if needed
-3. Synthesize with citations (`[[page]]`)
-4. File the answer as a synthesis page if it's worth keeping
-5. Update cross-references
+### Weekly Synthesis (Daily Notes → Wiki)
+
+Periodically ask:
+```
+Synthesise the week reading raw/daily/YYYY-MM-DD.md through raw/daily/YYYY-MM-DD.md.
+Identify: recurring themes, pending decisions, ideas ready for wiki/, links to existing ADRs.
+Present as a report only — do not create files.
+```
 
 ### Dev Co-pilot
 
 When you share a dev/ draft:
-
 1. Read the file
-2. Identify relevant `wiki/` pages and suggest wikilinks
+2. Identify relevant wiki/ pages and suggest wikilinks
 3. Find related ADRs or project notes
 4. Suggest whether any section deserves a wiki/ page
 5. Propose edits — do not apply without approval
 
 ### Lint (Health Check)
 
-Every 10–15 ingests, run:
-
+Every 10–15 ingests:
 ```
 Run a lint pass on wiki/
 ```
+Checks: orphan pages, contradictions, stale claims, missing cross-references, concepts mentioned 3+ times with no dedicated page.
 
-I'll check for: orphan pages, contradictions, stale claims, missing cross-references, concepts mentioned 3+ times with no dedicated page.
+---
+
+## Strict Limits
+
+- **NEVER edit files in `raw/`** — ever, for any reason
+- **NEVER run `git add`, `git commit`, or `git push`** — version control is manual
+- **NEVER edit `CLAUDE.md` itself** — propose changes, let Rohan edit
+- **NEVER delete files** without explicit confirmation ("yes, delete X")
+- **NEVER write to `dev/`** without explicit approval
+- **If an operation affects more than 5 files**, show the full plan before executing
+- **If unsure which zone a file belongs to**, ask before acting
+- **Create duplicate pages** — always check index first, merge instead
+- **Invent wikilinks** to pages that don't exist — note as TODO
 
 ---
 
 ## Dataview Queries
-
-Since you're using Dataview, here are useful query patterns:
 
 **All work pages, recent first:**
 ```dataview
@@ -205,9 +241,9 @@ SORT type ASC
 
 ## Templater Templates
 
-Suggested templates (save in `.obsidian/templates/`):
+Save in `.obsidian/templates/`.
 
-**Wiki page template:**
+**Wiki page:**
 ```markdown
 ---
 title: {{title}}
@@ -224,7 +260,24 @@ tags: []
 # {{title}}
 ```
 
-**Dev meeting note:**
+**Daily note:**
+```markdown
+---
+date: {{date:YYYY-MM-DD}}
+type: daily
+tags: [daily]
+---
+
+# {{date:YYYY-MM-DD}}
+
+## Today
+
+## Decisions pending
+
+## Ideas
+```
+
+**Dev meeting:**
 ```markdown
 ---
 date: {{date:YYYY-MM-DD}}
@@ -244,29 +297,15 @@ tags: [meeting]
 - [ ] 
 ```
 
-**ADR template:**
-```markdown
----
-date: {{date:YYYY-MM-DD}}
-status: proposed | accepted | superseded
-supersedes: 
-tags: [adr]
----
+**ADR:** consult `adr-writing` skill — use its template.
 
-# ADR: {{title}}
-
-## Context
-
-## Decision
-
-## Consequences
-```
+**Debrief:** consult `debrief-writing` skill — use its template.
 
 ---
 
 ## log.md Format
 
-Append-only. Format:
+Append-only:
 
 ```markdown
 ## [YYYY-MM-DD] ingest | Source Title
@@ -286,26 +325,8 @@ Append-only. Format:
 
 ---
 
-## Dos and Don'ts
-
-### Do
-- Read `raw/` freely
-- Create/update pages in `wiki/` based on what you read
-- Ask before creating a page in a domain you're unsure about (work vs personal)
-- Link pages liberally (but meaningfully)
-- Flag contradictions explicitly
-- Propose dev/ edits — don't apply them
-
-### Don't
-- Edit files in `raw/` — ever
-- Write to `dev/` without explicit approval
-- Create duplicate pages (check index first, merge instead)
-- Invent wikilinks to pages that don't exist — note as TODO instead
-- Skip updating `log.md` after any operation
-
----
-
 ## Version
 
 - Created: 2026-04-09
-- Restructured: 2026-06-01 (4-zone schema, Dataview/Templater support, dev/ zone added)
+- Restructured: 2026-06-01 (4-zone schema, Dataview/Templater support, dev/ zone)
+- Updated: 2026-06-01 (skills, slash commands, strict limits, plan-first ingestion, daily notes, dev/debriefs, dev/snippets)
