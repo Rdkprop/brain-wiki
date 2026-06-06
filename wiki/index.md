@@ -16,11 +16,13 @@ A catalog of all pages in the wiki. Updated automatically during ingests and que
 
 ## Topics
 - [[pg_consumer_metrics]] — Official 2026 consumer metric definitions: MAU, MEU, LDPV, Real Impressions, TUL, conversion rates | 2026-06-01
+- [[ai_usage_trends_2026]] — HBR "AI in the Wild" study: top use cases, agentic AI rise, thinkslop risk, workplace adoption reality | 2026-06-06
 
 ## Concepts
 - [[active_home_seeker]] — Definition (≥3 searches + ≥4 LDPVs/30 days), scale, engagement stats, KPIs, target-setting rules | 2026-06-01
 - [[analytics_agent]] — Consumer Analytics skill: what it covers, how to ask well (5 elements), data caveats, question bank by function | 2026-06-01
 - [[lead_tracking_sot]] — Lead SoT: LDM vs Segment vs GA4 rules, E1/E2/E3 models, market coverage gaps, BQ table reference | 2026-06-01
+- [[thinkslop]] — Cognitive risk of over-relying on AI: mechanisms (prompting too early, wholesale pasting, sycophancy) and countermeasures | 2026-06-06
 
 ## Syntheses
 - [[ga4_vs_segment]] — Why user counts from GA4 and Segment will never match; identity models; when to use which | 2026-06-01
@@ -32,6 +34,6 @@ A catalog of all pages in the wiki. Updated automatically during ingests and que
 ---
 
 **Last updated:** 2026-06-06
-**Total pages:** 9 (overview, WORKFLOW, propertyguru, pg_consumer_metrics, analytics_agent, lead_tracking_sot, ga4_vs_segment, looker_vs_analytics_agent)
+**Total pages:** 11 (overview, WORKFLOW, propertyguru, pg_consumer_metrics, analytics_agent, lead_tracking_sot, ga4_vs_segment, looker_vs_analytics_agent, ai_usage_trends_2026, thinkslop, active_home_seeker)
 
 *Note: This index is rebuilt during each ingest. See [[log.md]] for history.*

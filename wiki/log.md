@@ -38,6 +38,13 @@ Append-only record of all operations on the wiki. Tool-readable format: `## [YYY
 - Contradictions: none
 - Gaps suggested: [[looker]] entity page still missing (flagged previously, still no dedicated page)
 
+## [2026-06-06] ingest | raw/articles/How People Are Really Using AI in 2026.md
+- Domain: personal
+- Pages created: ai_usage_trends_2026, thinkslop
+- Pages updated: analytics_agent (added real-world agentic validation note + related_pages link), index.md, log.md
+- Contradictions: none
+- Gaps suggested: none — article is self-contained; [[thinkslop]] and [[ai_usage_trends_2026]] cross-link cleanly
+
 ---
 
 *Use `grep "^## \["` to see all entries*

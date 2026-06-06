@@ -9,6 +9,7 @@ related_pages:
   - propertyguru
   - lead_tracking_sot
   - looker_vs_analytics_agent
+  - ai_usage_trends_2026
 confidence: high
 sources:
   - raw/articles/Analytics Agent.md
@@ -114,3 +115,5 @@ The planned transition (per [[looker_vs_analytics_agent]]):
 - **Phase 3:** Explores deprecated only once agent meets stability, accuracy, and coverage thresholds
 
 **Reliability caveat:** occasional instability and routing issues currently prevent full replacement of Explores. This is the primary blocker for Phase 3.
+
+**Real-world validation:** The 2026 "AI in the Wild" study ([[ai_usage_trends_2026]]) ranked "autonomous agentic operations" as the #6 use case globally — confirming the direction, while noting that real deployments are still experimental and small-scale.
