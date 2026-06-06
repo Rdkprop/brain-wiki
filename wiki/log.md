@@ -31,6 +31,13 @@ Append-only record of all operations on the wiki. Tool-readable format: `## [YYY
   - No page yet for [[looker]] (primary BI tool — useful reference page)
   - Search quality / zero-result analysis referenced repeatedly — candidate for a dedicated topic page
 
+## [2026-06-06] ingest | raw/daily/Friday June 5th.md
+- Domain: work
+- Pages created: looker_vs_analytics_agent
+- Pages updated: analytics_agent (added exploration stack section + Phase 1-3 transition), index.md, log.md
+- Contradictions: none
+- Gaps suggested: [[looker]] entity page still missing (flagged previously, still no dedicated page)
+
 ---
 
 *Use `grep "^## \["` to see all entries*

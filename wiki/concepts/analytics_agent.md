@@ -3,11 +3,12 @@ title: PG Analytics Agent (Consumer Analytics Skill)
 type: concept
 domain: work
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-06-06
 related_pages:
   - pg_consumer_metrics
   - propertyguru
   - lead_tracking_sot
+  - looker_vs_analytics_agent
 confidence: high
 sources:
   - raw/articles/Analytics Agent.md
@@ -100,3 +101,16 @@ For **experiments** → explicitly say "experiment analysis" (routes to web lead
 - Where are demand-to-conversion gaps?
 
 See [[pg_consumer_metrics]] for the official metric definitions used in these analyses.
+
+---
+
+## Role in the Exploration Stack
+
+As of mid-2026, the agent's designated role is **assisted exploration** — not the primary exploration interface yet. Looker Explores remain the fallback for power users and correctness-critical analysis.
+
+The planned transition (per [[looker_vs_analytics_agent]]):
+- **Phase 1 (now):** Agent complements Explores; dashboards are SOT
+- **Phase 2:** Agent becomes the default entry point; Explores become the escape hatch
+- **Phase 3:** Explores deprecated only once agent meets stability, accuracy, and coverage thresholds
+
+**Reliability caveat:** occasional instability and routing issues currently prevent full replacement of Explores. This is the primary blocker for Phase 3.

@@ -24,13 +24,14 @@ A catalog of all pages in the wiki. Updated automatically during ingests and que
 
 ## Syntheses
 - [[ga4_vs_segment]] — Why user counts from GA4 and Segment will never match; identity models; when to use which | 2026-06-01
+- [[looker_vs_analytics_agent]] — 3-phase strategy for transitioning exploration interface from Looker Explores to Analytics Agent; interface ownership framing | 2026-06-06
 
 ## References
 - (none yet)
 
 ---
 
-**Last updated:** 2026-06-01
-**Total pages:** 8 (overview, WORKFLOW, propertyguru, pg_consumer_metrics, analytics_agent, lead_tracking_sot, ga4_vs_segment)
+**Last updated:** 2026-06-06
+**Total pages:** 9 (overview, WORKFLOW, propertyguru, pg_consumer_metrics, analytics_agent, lead_tracking_sot, ga4_vs_segment, looker_vs_analytics_agent)
 
 *Note: This index is rebuilt during each ingest. See [[log.md]] for history.*
