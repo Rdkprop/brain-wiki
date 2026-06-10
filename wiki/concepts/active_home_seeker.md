@@ -3,11 +3,13 @@ title: Active Home Seeker
 type: concept
 domain: work
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-06-08
 related_pages:
   - pg_consumer_metrics
   - analytics_agent
   - propertyguru
+  - lcm_campaign_data
+  - daa_team
 confidence: high
 sources:
   - raw/notes/Active Home seeker.md
@@ -92,3 +94,15 @@ Distribution is **right-skewed**: a small cohort generates hundreds to thousands
 ## Phase 2 (Planned)
 
 Mid-Intent vs High-Intent Home Seeker segmentation based on higher search + view thresholds — useful for targeted experiments and funnel optimisation.
+
+---
+
+## Anomaly — June 2026
+
+A drop in Home Seeker count was observed with **no corresponding drop in leads**. This mismatch triggered an investigation:
+
+- Possible instrumentation issue in the home seeker pipeline
+- Possible logic/pipeline error in the segmentation definition
+- Lead quality analysis also flagged (volume stable, but quality may have shifted)
+
+Mounica assigned to complete end-to-end sanity check by Thursday. See [[lcm_campaign_data]] for full context.

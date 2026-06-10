@@ -45,6 +45,13 @@ Append-only record of all operations on the wiki. Tool-readable format: `## [YYY
 - Contradictions: none
 - Gaps suggested: none — article is self-contained; [[thinkslop]] and [[ai_usage_trends_2026]] cross-link cleanly
 
+## [2026-06-08] ingest | raw/daily/Mon June 8th.md + raw/notes/Team Bandwidth Planning.md
+- Domain: work (both)
+- Pages created: daa_team, lcm_campaign_data
+- Pages updated: active_home_seeker (added June 2026 anomaly — home seeker drop vs stable leads), index.md, log.md
+- Contradictions: none
+- Gaps suggested: [[vasu]] entity page not yet created (referenced as key stakeholder across multiple syncs); [[braze]] concept page not yet created (referenced in LCM targeting context)
+
 ---
 
 *Use `grep "^## \["` to see all entries*
