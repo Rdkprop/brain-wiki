@@ -52,6 +52,13 @@ Append-only record of all operations on the wiki. Tool-readable format: `## [YYY
 - Contradictions: none
 - Gaps suggested: [[vasu]] entity page not yet created (referenced as key stakeholder across multiple syncs); [[braze]] concept page not yet created (referenced in LCM targeting context)
 
+## [2026-06-08] ingest | raw/notes/Segment Tracking.md
+- Domain: work
+- Pages created: segment_cdp (fills gap flagged in [2026-06-01] log entry)
+- Pages updated: ga4_vs_segment, lead_tracking_sot, lcm_campaign_data (added [[segment_cdp]] to related_pages), index.md, log.md
+- Contradictions: none
+- Gaps suggested: none — [[segment_cdp]] now cross-links cleanly to all referencing pages
+
 ---
 
 *Use `grep "^## \["` to see all entries*

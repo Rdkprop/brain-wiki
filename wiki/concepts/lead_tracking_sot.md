@@ -9,6 +9,7 @@ related_pages:
   - ga4_vs_segment
   - propertyguru
   - analytics_agent
+  - segment_cdp
 confidence: high
 sources:
   - raw/articles/Leads Playbook Establishing a Single Source of Truth for Lead Tracking and Attribution - Data Analytics & Activation.md

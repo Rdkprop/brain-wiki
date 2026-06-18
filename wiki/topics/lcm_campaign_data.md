@@ -9,6 +9,7 @@ related_pages:
   - active_home_seeker
   - analytics_agent
   - propertyguru
+  - segment_cdp
 confidence: medium
 sources:
   - raw/daily/Mon June 8th.md

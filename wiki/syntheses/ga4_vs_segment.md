@@ -8,6 +8,7 @@ related_pages:
   - lead_tracking_sot
   - propertyguru
   - pg_consumer_metrics
+  - segment_cdp
 confidence: high
 sources:
   - raw/articles/Comparison GA4 vs. Segment Identity & Session Tracking - Data Analytics & Activation.md
